@@ -1,9 +1,12 @@
+#pragma once
+
+#include <stdio.h>
+#include "Engine.h"
+
 typedef struct histroyRecorder
 {
-	int init();
-	int start();
-	int record(hint hint);
-	int stop();
-	int deinit();
-	void print();
-}HistroyRecorder;
+	int (*record)(hint hint);
+	void (*print)();
+}histroyRecorder;
+
+int initHistoryRecorder(histroyRecorder* HistoryRecorder);

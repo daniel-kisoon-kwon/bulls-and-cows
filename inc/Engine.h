@@ -1,13 +1,20 @@
-typedef struct hint
+#pragma once
+
+typedef struct _hint
 {
 	int targetNumber;
 	int ball;
 	int strike;
-	bool answer;
+	int answer;
 }hint;
 
-typedef struct engine
+typedef int(*funcPtrGenerateNumber)();
+typedef hint(*funcPtrCheckAnswer)(int input);
+
+typedef struct _engine
 {
-	int generateNumber();
-	hint getHint(int input);
+	funcPtrGenerateNumber generateNumber;
+	funcPtrCheckAnswer checkAnswer;
 }engine;
+
+int initEngine(engine *Engine);

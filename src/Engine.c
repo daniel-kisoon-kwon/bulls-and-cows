@@ -1,12 +1,63 @@
+#include <stdio.h>
+#include <time.h>
 #include "Engine.h"
 
+#define ENGINE_ERROR_NONE 0
+#define ENGINE_ERROR_INVALID_PARAMETER -1
+#define ENGINE_ERROR_FILE_OPEN_FAIL -2
+#define ENGINE_ERROR_NULL_POINTER -3
+
+int answer[3] = { 0, };
 int generateNumber()
 {
-	return 0;
+	int i, j;
+	
+	srand(time(NULL));
+	
+	for (i = 0; i < 3; i++)
+	{
+		answer[i] = rand() % 10;
+		for (j = 0; j < i; j++)
+			if (answer[i] == answer[j])
+				i--;
+	}
+	//printf("generated Number : %d%d%d\n", answer[0], answer[1], answer[2]);
+	return ENGINE_ERROR_NONE;
 }
 
-hint getHint(int input)
+hint checkAnswer(int input)
 {
-	hint Hint;
+	int targetNumber[3] = { input / 100, (input % 100) / 10, ( (input % 100) % 10 ) / 1 };
+	int ball = 0;
+	int strike = 0;
+	int isAnswer = 0;
+	int i, j;
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (targetNumber[i] == answer[j])
+			{
+				if (i == j) strike++;
+				else ball++;
+			}
+		}
+	}
+	if (strike == 3)
+		isAnswer = 1;
+
+	hint Hint = {input, ball, strike, isAnswer };
 	return Hint;
+}
+
+int initEngine(engine* Engine)
+{
+	if (NULL == Engine)
+		return ENGINE_ERROR_NULL_POINTER;
+
+	Engine->generateNumber = generateNumber;
+	Engine->checkAnswer = checkAnswer;
+
+	return ENGINE_ERROR_NONE;
 }
