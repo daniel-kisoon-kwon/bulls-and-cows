@@ -12,8 +12,8 @@ void showMenu()
 	while (1)
 	{
 		printf("** Bulls And Cows **\n");
-		printf("  1. Start Game\n");
-		printf("  2. Exit Game\n");
+		printf("  [1] Start Game\n");
+		printf("  [2] Exit Game\n");
 
 		printf(" [] select Number : ");
 		scanf("%d", &selectMenu);
@@ -44,6 +44,7 @@ int startGame()
 	engine* Engine = createEngeine();
 	histroyRecorder* HistoryManager = createHistroyRecorder();
 
+	printf("\n []  Start Game!\n");
 	if (ERR_NULL_POINTER == initEngine(Engine))
 	{
 		printf("Init Engine failed!\n");
@@ -60,7 +61,7 @@ int startGame()
 
 	while (Hint.answer != 1)
 	{
-		printf("\nGuess Number('0' for exit game) : ");
+		printf("Guess Number('0' for exit game) : ");
 		scanfForAnswer(&number);
 		Hint = Engine->checkAnswer(number);
 
