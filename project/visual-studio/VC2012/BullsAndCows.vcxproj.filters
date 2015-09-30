@@ -15,10 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\HistoryRecorder.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="..\main.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\HistoryRecorder.c">
+    <ClCompile Include="..\SystemManager.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\Engine.c">
@@ -26,14 +29,20 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\main.h">
-      <Filter>소스 파일</Filter>
+    <ClInclude Include="..\ErrorDefine.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="..\HistoryRecorder.h">
-      <Filter>소스 파일</Filter>
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\main.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SystemManager.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\inc\Engine.h">
-      <Filter>소스 파일</Filter>
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

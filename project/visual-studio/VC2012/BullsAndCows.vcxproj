@@ -10,6 +10,19 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\Engine.c" />
+    <ClCompile Include="..\HistoryRecorder.c" />
+    <ClCompile Include="..\main.c" />
+    <ClCompile Include="..\SystemManager.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\inc\Engine.h" />
+    <ClInclude Include="..\ErrorDefine.h" />
+    <ClInclude Include="..\HistoryRecorder.h" />
+    <ClInclude Include="..\main.h" />
+    <ClInclude Include="..\SystemManager.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C3EB9684-9B48-4AD5-8968-2E29042EB1C0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -52,7 +65,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Practice\bulls-and-cows\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\..\..\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -76,16 +89,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\src\Engine.c" />
-    <ClCompile Include="..\HistoryRecorder.c" />
-    <ClCompile Include="..\main.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\inc\Engine.h" />
-    <ClInclude Include="..\HistoryRecorder.h" />
-    <ClInclude Include="..\main.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
