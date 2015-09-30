@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include "Engine.h"
 
@@ -27,27 +28,26 @@ int generateNumber()
 
 hint checkAnswer(int input)
 {
+	int i, j;
 	int targetNumber[3] = { input / 100, (input % 100) / 10, ( (input % 100) % 10 ) / 1 };
 	int ball = 0;
 	int strike = 0;
 	int isAnswer = 0;
-	int i, j;
-
+	hint Hint = {input, ball, strike, isAnswer };
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
 		{
 			if (targetNumber[i] == answer[j])
 			{
-				if (i == j) strike++;
-				else ball++;
+				if (i == j) Hint.strike++;
+				else Hint.ball++;
 			}
 		}
 	}
-	if (strike == 3)
-		isAnswer = 1;
+	if (Hint.strike == 3)
+		Hint.answer = 1;
 
-	hint Hint = {input, ball, strike, isAnswer };
 	return Hint;
 }
 
